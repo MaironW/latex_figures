@@ -1,0 +1,60 @@
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (0,0) -- (2,1) -- (4,0) -- (2,-1) -- cycle;
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (7,0) -- (9,1) -- (11,0) -- (9,-1) -- cycle;
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (2,-1) -- (2,-1.5) -- (4,-0.5) -- (4,0) -- cycle;
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (0,0) -- (0,-0.5) -- (2,-1.5) -- (2,-1) -- cycle;
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (7,0) -- (7,-0.5) -- (9,-1.5) -- (9,-1) -- cycle;
+\fill[color=qqwwff,fill=qqwwff,fill opacity=0.1] (9,-1.5) -- (11,-0.5) -- (11,0) -- (9,-1) -- cycle;
+\draw [color=qqwwff] (0,0)-- (2,1);
+\draw [color=qqwwff] (2,1)-- (4,0);
+\draw [color=qqwwff] (4,0)-- (2,-1);
+\draw [color=qqwwff] (2,-1)-- (0,0);
+\draw [color=qqwwff] (7,0)-- (9,1);
+\draw [color=qqwwff] (9,1)-- (11,0);
+\draw [color=qqwwff] (11,0)-- (9,-1);
+\draw [color=qqwwff] (9,-1)-- (7,0);
+\draw [color=qqwwff] (2,-1)-- (2,-1.5);
+\draw [color=qqwwff] (2,-1.5)-- (4,-0.5);
+\draw [color=qqwwff] (4,-0.5)-- (4,0);
+\draw [color=qqwwff] (4,0)-- (2,-1);
+\draw [color=qqwwff] (0,0)-- (0,-0.5);
+\draw [color=qqwwff] (0,-0.5)-- (2,-1.5);
+\draw [color=qqwwff] (2,-1.5)-- (2,-1);
+\draw [color=qqwwff] (2,-1)-- (0,0);
+\draw [color=qqwwff] (7,0)-- (7,-0.5);
+\draw [color=qqwwff] (7,-0.5)-- (9,-1.5);
+\draw [color=qqwwff] (9,-1.5)-- (9,-1);
+\draw [color=qqwwff] (9,-1)-- (7,0);
+\draw [color=qqwwff] (9,-1.5)-- (11,-0.5);
+\draw [color=qqwwff] (11,-0.5)-- (11,0);
+\draw [color=qqwwff] (11,0)-- (9,-1);
+\draw [color=qqwwff] (9,-1)-- (9,-1.5);
+\draw [->] (2,0) -- (4,1);
+\draw [->] (2,0) -- (4,-1);
+\draw [->] (2,0) -- (2,2);
+\draw [->] (9,0) -- (11,-1);
+\draw [->] (9,0) -- (11,1);
+\draw [->] (9,-1.5) -- (9,-2);
+\draw [dash pattern=on 2pt off 2pt] (9,0)-- (9,-1.5);
+\draw (0.22,0.25) node[anchor=north west] {\scriptsize MPU-9250};
+\draw (7.22,0.25) node[anchor=north west] {\scriptsize MPU-9250};
+\draw (1.83,2.42) node[anchor=north west] {$+\bm{z}$};
+\draw (4.04,-0.97) node[anchor=north west] {$+\bm{x}$};
+\draw (4.04,1.37) node[anchor=north west] {$+\bm{y}$};
+\draw (9.00,-1.51) node[anchor=north west] {$+\bm{z}$};
+\draw (11.04,1.35) node[anchor=north west] {$+\bm{x}$};
+\draw (11.04,-0.97) node[anchor=north west] {$+\bm{y}$};
+\draw [shift={(2,2)}] plot[domain=3.93:5.5,variable=\t]({1*0.71*cos(\t r)+0*0.71*sin(\t r)},{0*0.71*cos(\t r)+1*0.71*sin(\t r)});
+\draw [shift={(3,0.5)}] plot[domain=0:1.57,variable=\t]({1*0.5*cos(\t r)+0*0.5*sin(\t r)},{0*0.5*cos(\t r)+1*0.5*sin(\t r)});
+\draw [shift={(4,-1)}] plot[domain=1.57:3.5,variable=\t]({1*0.5*cos(\t r)+0*0.5*sin(\t r)},{0*0.5*cos(\t r)+1*0.5*sin(\t r)});
+\draw [->] (2.5,1.5) -- (2.67,1.68);
+\draw [->] (3.5,0.5) -- (3.51,0.31);
+\draw [->] (3.53,-1.18) -- (3.6,-1.32);
+\draw (0.05,-1.99) node[anchor=north west] {a) MPU-6500};
+\draw (7.05,-1.99) node[anchor=north west] {b) AK8963};
+\end{tikzpicture}

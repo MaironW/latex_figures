@@ -1,0 +1,43 @@
+\newrgbcolor{qqwwff}{0 0.4 1}
+\newrgbcolor{ccqqqq}{0.8 0 0}
+\psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-6,-4.54)(6,5.7)
+\pscircle(0,0){4}
+% \rput{0}(0,0){\psellipse[linestyle=dashed,dash=2pt 2pt](0,0)(4,1)}
+\psline{->}(0,0)(0,5.5)
+\parametricplot[linestyle=dotted]{1.5708}{4.3024}{(1.01^0.5+1.5)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linestyle=dotted]{-1.1808}{1.5708}{(1.01^0.5+1)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linecolor=ccqqqq]{1.2176164342442366}{1.7549532562324335}{1*7.24*cos(t)+0*7.24*sin(t)+-0.75|0*7.24*cos(t)+1*7.24*sin(t)+-5.08}
+\parametricplot[linecolor=ccqqqq]{1.5708}{2.541592653589793}{(1.01^0.5+1.5)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linecolor=ccqqqq]{0.5}{1.5708}{(1.01^0.5+1)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linecolor=qqwwff]{3.822784931166972}{5.5634368764203135}{1*0.34*cos(t)+0*0.34*sin(t)+0|0*0.34*cos(t)+1*0.34*sin(t)+3.99}
+\parametricplot[linecolor=qqwwff]{0.22712712224450782}{1.4561978010660845}{1*0.22*cos(t)+0*0.22*sin(t)+-2|0*0.22*cos(t)+1*0.22*sin(t)+2.04}
+\parametricplot[linecolor=qqwwff]{1.721829329878349}{3.114871954381193}{1*0.21*cos(t)+0*0.21*sin(t)+1.7|0*0.21*cos(t)+1*0.21*sin(t)+1.81}
+\rput[tl](-2.38,2.32){1}
+\rput[tl](1.8,2){2}
+\rput[tl](-0.29,4.41){3}
+\rput[tl](-0.27,1.89){\ccqqqq{$a$}}
+\rput[tl](1.21,3.37){\ccqqqq{$b$}}
+\rput[tl](-1.45,3.5){\ccqqqq{$c$}}
+\parametricplot[linestyle=dashed,dash=4pt 4pt,linecolor=red]{2.54159}{3.2895926535897932}{(1.01^0.5+1.5)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linestyle=dashed,dash=4pt 4pt,linecolor=ccqqqq]{-0.16}{0.5}{(1.01^0.5+1)*COS(t)|15.98^0.5*SIN(t)-0.2}
+\parametricplot[linestyle=dashed,dash=2pt 2pt]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+\parametricplot{-3.141592653589793}{0.0}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+% \begin{scriptsize}
+\psdots[dotstyle=*](0,3.8)
+\rput[bl](0.09,4.18){Norte}
+\psdots[dotstyle=*,linecolor=qqwwff](-2.07,2.04)
+\rput[bl](-1.7,2.32){\qqwwff{$B$}}
+\psdots[dotstyle=*,linecolor=qqwwff](1.76,1.72)
+\rput[bl](1.26,2.03){\qqwwff{$C$}}
+\rput[bl](-0.34,3.37){\qqwwff{$A$}}
+\rput[bl](-2.79,1.09){\ccqqqq{$\varphi_1$}}
+\rput[bl](2.12,0.36){\ccqqqq{$\varphi_2$}}
+\rput[bl](-2.85,-1.15){\ccqqqq{$\lambda_1$}}
+\rput[bl](2.1,-1.2){\ccqqqq{$\lambda_2$}}
+\psdots[dotstyle=*](-2.47,-0.8)
+\psdots[dotstyle=*](1.97,-0.88)
+\psline[linestyle=dashed,linewidth=0.5pt](0,0)(-2.47,-0.8)
+\psline[linestyle=dashed,linewidth=0.5pt](0,0)(1.97,-0.88)
+% \end{scriptsize}
+\end{pspicture*}

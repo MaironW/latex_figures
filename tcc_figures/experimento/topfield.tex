@@ -1,0 +1,31 @@
+\definecolor{ttccqq}{rgb}{0.2,0.8,0}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{qqwwcc}{rgb}{0,0.4,0.8}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+\draw (-10,20)-- (10,20);
+\draw (-10,20)-- (-10,0);
+\draw (10,20)-- (10,0);
+\draw (10,0)-- (-10,0);
+\draw [dash pattern=on 6pt off 6pt] (0,-3)-- (-10,0);
+\draw [dash pattern=on 6pt off 6pt] (0,-3)-- (10,0);
+\draw [dash pattern=on 6pt off 6pt] (0,-3)-- (10,20);
+\draw [dash pattern=on 6pt off 6pt] (0,-3)-- (-10,20);
+\draw (-0.87,21.26) node[anchor=north west] {15 m};
+\draw (10.53,10.55) node[anchor=north west] {15 m};
+\draw (2.21,9.44) node[anchor=north west] {19,5 m};
+\draw [dotted] (-10,-2.02)-- (-10,0);
+\draw[color=ccqqqq] (-0.06,-3.65) node {Monitor};
+% \begin{scriptsize}
+\fill [color=qqwwcc] (10,20) circle (1.5pt);
+\draw[color=qqwwcc] (10.48,20.67) node {$C$};
+\fill [color=qqwwcc] (-10,20) circle (1.5pt);
+\draw[color=qqwwcc] (-10.48,20.67) node {$B$};
+\fill [color=ccqqqq] (0,-3) circle (1.5pt);
+\fill [color=qqwwcc] (-10,0) circle (1.5pt);
+\draw[color=qqwwcc] (-10.82,-0.1) node {$A$};
+\fill [color=qqwwcc] (10,0) circle (1.5pt);
+\draw[color=qqwwcc] (10.82,-0.1) node {$D$};
+\fill [color=ttccqq] (-10,-2.02) circle (1.5pt);
+\draw[color=ttccqq] (-9,-2) node {$O$};
+% \end{scriptsize}
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+\newrgbcolor{qqwwcc}{0 0.4 1}
+\newrgbcolor{ccqqqq}{0.8 0 0}
+\psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+
+    \begin{pspicture*}(-7,-4.1)(7,6)
+    \pscircle(0,0){4}
+    \psline[linecolor=qqwwcc]{->}(0,0)(0,6)
+    \psline[linecolor=qqwwcc]{->}(0,0)(6,0)
+    \psline[linecolor=qqwwcc]{->}(0,0)(-5.2,-3)
+    \psline[linecolor=ccqqqq]{->}(0,0)(5.8,-1.55)
+    \psline[linecolor=ccqqqq]{->}(0,0)(-5.8,-1.55)
+    \psline[linecolor=ccqqqq]{->}(0,0)(0,5.5)
+    \parametricplot[linestyle=dotted]{1.9242016487162585}{4.222772512698794}{1*4.27*cos(t)+0*4.27*sin(t)+1.48|0*4.27*cos(t)+1*4.27*sin(t)+-0.2}
+    \psline{->}(-1.88,2.43)(-1.31,3.15)
+    \psline{->}(-1.88,2.43)(-0.99,2.19)
+    \psline{->}(-1.88,2.43)(-1.29,1.67)
+    \parametricplot{-3.141592653589793}{0.0}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+    \parametricplot[linestyle=dashed,dash=3pt 3pt]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+    % \begin{scriptsize}
+    \rput[bl](0.22,5.5){\qqwwcc{$^i z$}}
+    \rput[bl](5.04,0.34){\qqwwcc{$^i y$}}
+    \rput[bl](-4.52,-2.17){\qqwwcc{$^i x$}}
+    \rput[bl](4.94,-1.07){\ccqqqq{$^e y$}}
+    \rput[bl](-4.93,-0.97){\ccqqqq{$^e x$}}
+    \rput[bl](-0.47,5.2){\ccqqqq{$^e z$}}
+    \psdots[dotstyle=*](0,3.8)
+    \rput[bl](0.15,3.53){Norte}
+    \rput[bl](-1.40,3.2){$N$}
+    \rput[bl](-0.93,2.1){$E$}
+    \rput[bl](-1.26,1.48){$D$}
+    % \end{scriptsize}
+    \end{pspicture*}

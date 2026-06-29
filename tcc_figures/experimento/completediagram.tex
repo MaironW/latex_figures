@@ -1,0 +1,152 @@
+{
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+
+\tikzstyle{sensor} = [draw, fill=qqwwff!10, rectangle, 
+    minimum height=3em, minimum width=6em, align=center]
+\tikzstyle{eqs} = [sensor, fill=red!80.0!black!10, rectangle, 
+minimum height=3em, minimum width=6em, align=center, rounded corners]
+\tikzstyle{ann} = [above, text width=5em]
+% \tikzstyle{sum} = [draw, fill=qqwwff!10, circle, node distance=1cm]
+% \tikzstyle{input} = [coordinate]
+% \tikzstyle{output} = [coordinate]
+% \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\def\blockdist{2.5}
+\def\edgedist{2.5}
+
+% The block diagram code is probably more verbose than necessary
+\begin{tikzpicture}[auto, node distance=4cm,>=latex']
+    
+    \node [sensor,minimum height=5em] (MPU) {MPU-9250};
+    \node [eqs,right of=MPU,minimum height=5em,node distance=3.5cm] (IMUMADGWICK) {IMU\\Madgwick};
+    \node [eqs,above of=IMUMADGWICK,minimum height=5em,node distance=3.5cm] (MARGMADGWICK) {MARG\\Madgwick};
+    
+    % MARG IMU Connection
+    \path (MARGMADGWICK)+(0,-2) node (MARGOUT) [coordinate] {};
+    \draw [->,dashed] (MARGMADGWICK) -- node {$^s_n\bm{q}$} (IMUMADGWICK);
+    % \draw [->] (MARGOUT) -- (IMUMADGWICK) {};
+    
+    % Magnetic Declination
+    \node [sensor, right of=MARGMADGWICK,node distance=3.5cm] (DECLINATION) {Declinação\\magnética};
+    \draw [->] (DECLINATION) -- (MARGMADGWICK);
+    
+    % Mag output
+    \path (MPU.30)+(0.8cm,0) node (outb) [coordinate] {};
+    \path (MPU.30)+(0.5cm,0.25cm) node {$^s\bm{b}$} [coordinate] {};
+    \path (MARGMADGWICK.30)+(-2.1,0) node (MARGinb) [coordinate] {};
+    \draw [->,dashed] (outb) |- (MARGinb);
+    \path (IMUMADGWICK.30)+(-2.1,0) node (IMUinb) [coordinate] {};
+    \draw [-,dashed] (MPU.30) -- (outb);
+    
+    % Gyro output
+    \path (MPU.0)+(1cm,0) node (outb) [coordinate] {};
+    \path (MPU.0)+(0.5cm,0.25cm) node {$^s\bm{\omega}$} [coordinate] {};
+    \path (MARGMADGWICK.0)+(-2.1,0) node (MARGinb) [coordinate] {};
+    \draw [->,dashed] (outb) |- (MARGinb);
+    \path (IMUMADGWICK.0)+(-2.1,0) node (IMUinb) [coordinate] {};
+    \draw [->] (MPU.0) -- (IMUinb);
+    
+    % Accel output
+    \path (MPU.-30)+(1.2cm,0) node (outb) [coordinate] {};
+    \path (MPU.-30)+(0.5cm,0.25cm) node {$^s\bm{a}$} [coordinate] {};
+    \path (MARGMADGWICK.-30)+(-2.1,0) node (MARGinb) [coordinate] {};
+    \draw [->,dashed] (outb) |- (MARGinb);
+    \path (IMUMADGWICK.-30)+(-2.1,0) node (IMUinb) [coordinate] {};
+    \draw [->] (MPU.-30) -- (IMUinb);
+    
+    \node [eqs, right of=IMUMADGWICK,node distance=3.5cm] (YAW) {Conversão\\de guinada};
+    \draw [->] (IMUMADGWICK) -- node {$^s_n\bm{q}$} (YAW) {};
+    \node [eqs, right of=YAW,node distance=3.25cm] (QUATYAW) {Mudança de\\referência};
+    \draw [->] (YAW) -- node {$\psi$} (QUATYAW) {};
+    \node [eqs, right of=QUATYAW,node distance=3.25cm] (ROLLPITCH) {Conversão de\\rolagem e arfagem};
+    \draw [->] (QUATYAW) -- node {$^s\bm{q}$} (ROLLPITCH) {};
+    
+    %MADGWICK feedback
+    % \path (IMUMADGWICK)+(1.5,0) node (quatfeedback) [coordinate] {};
+    % \draw [-] (quatfeedback) |- (MARGOUT) {};
+    
+    % PITCH output
+    \node [sensor,above of=ROLLPITCH,fill=black!10,node distance=3cm] (EULER) {Ângulos de Euler};
+    \path (EULER.-21)+(-0.9,0) node (inroll) [coordinate] {};
+    \draw [->] (ROLLPITCH.20)+(-1cm,0) -- node {$\phi$} (inroll);
+    
+    % ROLL output
+    \path (EULER.-21)+(-1.9,0) node (inroll) [coordinate] {};
+    
+    \draw [->] (ROLLPITCH.20)+(-2cm,0) -- node {$\theta$} (inroll);
+    
+    % YAW output
+    \path (YAW)+(1.85cm,0) node (outyaw) [coordinate] {};
+    \draw [->] (outyaw) |- (EULER);
+    
+    %GRAVIDADE
+    \node [sensor,below of=IMUMADGWICK,node distance=2cm] (NGRAVITY) {Modelo de\\gravidade};
+    \node [eqs,right of=NGRAVITY,node distance=3.5cm] (SGRAVITY) {Mudança de\\referência};
+    \draw [->] (NGRAVITY) -- node {$^n\bm{g}$} (SGRAVITY) {};
+    
+    \path (IMUMADGWICK)+(2cm,0) node (outquat) [coordinate] {};
+    \path (SGRAVITY)+(0,1) node (outquat2) [coordinate] {};
+    \draw [-] (outquat) |- (outquat2) {};
+    \draw [->] (outquat2) -- (SGRAVITY) {};
+    
+    %ACELERAÇÃO LINEAR
+    \node [eqs,right of=SGRAVITY,node distance=3.25cm] (ALIN) {Remoção da\\gravidade};
+    \draw [->] (SGRAVITY) -- node {$^s\bm{g}$} (ALIN);
+    \path (MPU.-30)+(1cm,0) node (outaccel) [coordinate] {};
+    \path (MPU.-30)+(1cm,-2.5cm) node (outaccel2) [coordinate] {};
+    \draw [-] (outaccel) -- (outaccel2) {};
+    \draw [->] (outaccel2) -| (ALIN) {};
+    
+    \path (ALIN)+(0,1) node (outquat3) [coordinate] {};
+    \draw [->] (outquat3) -- (QUATYAW) {};
+    
+    %ACELERAÇÃO NED
+    \node [eqs, right of=ALIN,node distance=3.25cm] (ANED) {Mudança de\\referência};
+    \draw [->] (ALIN) -- node {$^s\bm{a}_{lin}$} (ANED) {};
+    \draw [->] (outquat2) -| (ANED) {};
+    \node [sensor, below of=ANED, fill=black!10,node distance=2cm,minimum width=1cm] (ANEDOUT) {$\ddot{\bm{X}}_{imu}$}; 
+    \draw [->] (ANED) -- node {$^n\bm{a}$} (ANEDOUT) {};
+    
+    
+    %GPS
+    \node [sensor,below of=MPU, minimum height=5em, node distance=5cm] (GPS) {GPS u-blox\\NEO-6M};
+    \path (GPS.0)+(1cm,0) node (outlat) [coordinate] {};
+    \draw [-] (GPS.0) -- node {$\lambda$, $\varphi$} (outlat) {};
+    \path (GPS.-30)+(0.75cm,0) node (outvg) [coordinate] {};
+    
+    \node [eqs,right of=GPS,node distance=3.5cm] (HAVERSINE) {Haversine};
+    \node [eqs,below of=HAVERSINE,node distance=1.5cm] (BEARING) {Bearing};
+    \draw [->] (outlat) -- (HAVERSINE) {};
+    \draw [->] (outlat) |- (BEARING) {};
+    
+    \node [eqs,below of=SGRAVITY,minimum height=7em,node distance=3.75cm] (DECOMP) {Decomposição no\\referencial NED};
+    \path (HAVERSINE)+(2.15cm,0) node (outD) [coordinate] {};
+    \draw [->] (HAVERSINE) -- node {$d$} (outD) {};
+    \path (BEARING)+(2.15cm,0) node (outB) [coordinate] {};
+    \draw [->] (BEARING) -- node {$B$} (outB) {};
+    
+    \path (DECOMP)+(0,-2) node (invg) [coordinate] {};
+    \draw [-] (GPS.-30) -- node {$v_g$} (outvg) {};
+    \draw [-] (outvg) |- (invg) {};
+    \draw [->] (invg) -- (DECOMP) {};
+    
+    %NED
+    \node [sensor,fill=black!10,right of=DECOMP,minimum width=1cm,minimum height=1cm,node distance=3.25cm] (NED) {$\bm{X}_{gps}$\\$\dot{\bm{X}}_{gps}$};
+    \draw [->] (DECOMP) -- (NED) {};
+    
+    %KALMAN
+    \node [eqs,right of=NED,node distance=3.25cm] (KALMAN) {Filtro\\ de Kalman};
+    \draw [->] (ANEDOUT) -- (KALMAN) {};
+    \draw [->] (NED) -- (KALMAN) {};
+    
+    %SAÍDA
+    \node [sensor,fill=black!10,below of=KALMAN,node distance=3cm] (OUTPUT) {Estado estimado};
+    \path (KALMAN)+(-0.5,-0.55) node (outXest) [coordinate] {};
+    \path (OUTPUT)+(-0.5,+0.55) node (inXest) [coordinate] {};
+    \draw [->] (outXest) -- node {$\bm{X}_{est}$} (inXest) {};
+    \path (KALMAN)+(+0.5,-0.55) node (outdXest) [coordinate] {};
+    \path (OUTPUT)+(+0.5,+0.55) node (indXest) [coordinate] {};
+    \draw [->] (outdXest) -- node {$\dot{\bm{X}}_{est}$} (indXest) {};
+\end{tikzpicture}
+}

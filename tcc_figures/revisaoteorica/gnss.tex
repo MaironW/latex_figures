@@ -1,0 +1,33 @@
+\newrgbcolor{qqwwff}{0 0.4 1}
+\newrgbcolor{ccqqqq}{0.8 0 0}
+\newrgbcolor{greens}{0.2 0.8 0}
+
+\psset{xunit=0.6cm,yunit=0.6cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+    \begin{pspicture*}(-4,-7)(10.5,9)
+        \pscircle(0,0){2.4}
+        \pscircle(6,-2){2.4}
+        \rput{71.56}(3,-1){\psellipse[linewidth=1.2pt,linecolor=qqwwff](0,0)(2.38,0.44)}
+        \parametricplot{-3.14159}{0.0}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+        \parametricplot{-3.14159}{0.0}{sqrt(15.98)*COS(t)+6|sqrt(1.01)*SIN(t)-2}
+        \parametricplot[linestyle=dashed,dash=3pt 3pt]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+        \parametricplot[linestyle=dashed,dash=3pt 3pt]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)+6|sqrt(1.01)*SIN(t)-2}
+        \pscircle[linecolor=greens](5,3.5){2.4}
+        \parametricplot[linestyle=dashed,dash=3pt 3pt,linecolor=greens]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)+5|sqrt(1.01)*SIN(t)+3.5}
+        \parametricplot[linecolor=greens]{-3.14159}{0.0}{sqrt(15.98)*COS(t)+5|sqrt(1.01)*SIN(t)+3.5}
+        \psline[linestyle=dotted](0,0)(3.67,-0.27)
+        \psline[linestyle=dotted](6,-2)(3.67,-0.27)
+        \psline[linestyle=dotted](3.67,-0.27)(5,3.5)
+        \rput[tl](2.55,-1.96){\qqwwff{$\pi$}}
+        % \begin{scriptsize}
+        \psdots[dotstyle=*](0,0)
+        \rput[bl](0.13,0.22){$A$}
+        \psdots[dotstyle=*](6,-2)
+        \rput[bl](6.12,-1.79){$B$}
+        \psdots[dotstyle=*](5,3.5)
+        \rput[bl](5.14,3.7){$C$}
+        \rput[bl](4.1,-0.27){\ccqqqq{$1$}}
+        \psdots[dotsize=4pt 0,dotstyle=*,linecolor=ccqqqq](3.67,-0.27)
+        \rput[bl](3.18,0.06){\ccqqqq{$2$}}
+        \psdots[dotsize=4pt 0,dotstyle=*,linecolor=ccqqqq](2.93,0.08)
+        % \end{scriptsize}
+        \end{pspicture*}

@@ -1,0 +1,84 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+\usepackage[absolute,overlay]{textpos}
+% \usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{hyphenat}
+\usepackage{calrsfs}
+\usepackage{indentfirst}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+% \usepackage{helvet}
+\usepackage{times}
+\usepackage{catchfilebetweentags}
+\usepackage{enumerate}
+\usepackage{lscape}
+\usepackage{enumitem}
+% \usepackage{titling}
+% \usepackage{footmisc}
+\usepackage{fancyhdr}
+% \usepackage{scrextend}
+%\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage{nomencl}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage{kantlipsum}
+\usepackage{setspace}
+
+%Color packages
+% \usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{color}
+
+%Equation packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{sansmath}
+\usepackage{bm}
+\usepackage{breqn}
+\usepackage{mathtools}
+\usepackage{chngcntr} %Para editar número equação
+\usepackage{mathrsfs}
+
+%Image packages
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{geometry}
+% \usepackage{tocbibind}
+\usepackage{pgfplots}
+\usepackage{pgf}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+\usetikzlibrary{shapes,arrows}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\degree}{\ensuremath{^\circ}} % degree
+\newcommand{\hav}{\ensuremath{\mbox{ \textrm{hav} }}} % haversine
+% \newcommand{\unit}[1]{\ensuremath{\mbox{\textrm{ #1}}}} % unity
+
+\usepackage[active,tightpage]{preview}
+\setlength{\PreviewBorder}{0pt}
+\usepackage{tikz}
+\PreviewEnvironment[{[]}]{pspicture}
+\PreviewEnvironment[{[]}]{tikzpicture}
+\begin{document}
+
+% Theory
+\input{masters_figures/theory/quaternions.tex}
+\input{masters_figures/theory/kf.tex}
+
+\end{document}

@@ -1,0 +1,25 @@
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{tttttt}{rgb}{0.2,0.2,0.2}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    % \clip(-4.17,-3.31) rectangle (12.06,6.23);
+    \draw [shift={(0,0)},color=qqwwff,fill=qqwwff,fill opacity=0.1] (0,0) -- (33.69:0.46) arc (33.69:90:0.46) -- cycle;
+    \draw [->] (0,0) -- (6,0);
+    \draw [->] (0,0) -- (0,3);
+    \draw [->,color=ccqqqq] (0,0) -- (6,3);
+    \draw [dotted] (0,3)-- (6,3);
+    \draw [dotted] (6,0)-- (6,3);
+    \draw (6.12,0.22) node[anchor=north west] {$E$};
+    \draw (-0.7,3) node[anchor=north west] {$N$};
+    % \begin{scriptsize}
+    \fill [color=uququq] (0,0) circle (1.5pt);
+    \fill [color=tttttt] (6,3) circle (1.5pt);
+    \draw[color=qqwwff] (0.38,0.57) node {$B$};
+    \draw[color=black] (3.11,0.17) node {$\Delta E$};
+    \draw[color=black] (0.4,1.73) node {$\Delta N$};
+    \draw[color=ccqqqq] (3.02,2) node {$d$};
+    % \end{scriptsize}
+    \end{tikzpicture}
+

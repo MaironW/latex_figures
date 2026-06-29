@@ -1,0 +1,15 @@
+\newrgbcolor{ccqqqq}{0.8 0 0}
+\newrgbcolor{qqwwff}{0 0.4 1}
+
+
+    \psset{xunit=0.7cm,yunit=0.7cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+    \begin{pspicture*}(-5,-3.2)(5,4.2)
+    \parametricplot{0.0}{6.283185307179586}{4*COS(t)|3*SIN(t)}
+    \parametricplot[linestyle=dashed,dash=2pt 2pt]{0.0}{3.141592653589793}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+    \parametricplot{-3.14159}{0.0}{sqrt(15.98)*COS(t)|sqrt(1.01)*SIN(t)}
+    \psline[linecolor=ccqqqq](0,0)(-4,0)
+    \psline[linecolor=qqwwff](0,0)(0,3)
+    \rput[tl](-2.11,0.52){\ccqqqq{$a$}}
+    \rput[tl](0.22,1.85){\qqwwff{$b$}}
+    \rput[tl](-2.8,3.65){\qqwwff{eixo de rotação da Terra}}
+    \end{pspicture*}

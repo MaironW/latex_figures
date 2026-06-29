@@ -1,0 +1,35 @@
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+
+% \newcommand{\degre}{\ensuremath{^\circ}}
+
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+% \clip(-31.86,-27.51) rectangle (95.33,44.06);
+\fill[color=black,fill=black,fill opacity=0.1] (-14.72,-1.36) -- (23.06,12.98) -- (42.82,1.71) -- (5.04,-12.63) -- cycle;
+\draw [shift={(0,0)},color=qqwwff,fill=qqwwff,fill opacity=0.1] (0,0) -- (0:3.63) arc (0:20.78:3.63) -- cycle;
+\draw [shift={(0,0)},color=ccqqqq,fill=ccqqqq,fill opacity=0.1] (0,0) -- (39.79:3.63) arc (39.79:90:3.63) -- cycle;
+\draw [->,color=ccqqqq] (0,0) -- (27.06,18.54);
+\draw [->,color=qqwwff] (0,0) -- (27.06,0);
+\draw [->] (0,0) -- (16.25,6.17);
+\draw [->] (0,0) -- (10.81,-6.17);
+\draw [->] (0,0) -- (0,18.54);
+\draw [dotted] (27.06,18.54)-- (27.06,0);
+\draw [dotted] (0,18.54)-- (27.06,18.54);
+\draw [dotted] (27.06,0)-- (10.81,-6.17);
+\draw [dotted] (16.25,6.17)-- (27.06,0);
+\draw [color=black] (-14.72,-1.36)-- (23.06,12.98);
+\draw [color=black] (23.06,12.98)-- (42.82,1.71);
+\draw [color=black] (42.82,1.71)-- (5.04,-12.63);
+\draw [color=black] (5.04,-12.63)-- (-14.72,-1.36);
+\draw (16.87,8.52) node[anchor=north west] {$\dot{N}$};
+\draw (11.18,-5.48) node[anchor=north west] {$\dot{E}$};
+\draw [color=qqwwff](28.35,1.38) node[anchor=north west] {$v_g$};
+\draw [color=ccqqqq](28,19) node[anchor=north west] {$^n v$};
+\draw (-3,19) node[anchor=north west] {$\dot{D}$};
+% \begin{scriptsize}
+\draw[color=qqwwff] (5.44,1.02) node {$B$};
+\draw[color=ccqqqq] (2.2,4.1) node {$A$};
+% \end{scriptsize}
+\end{tikzpicture}

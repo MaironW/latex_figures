@@ -1,0 +1,24 @@
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+% \clip(-5.99,-5.24) rectangle (11.75,5.12);
+\draw [->,color=qqwwff] (0,0) -- (3.46,-2);
+\draw [->,color=qqwwff] (0,0) -- (0,4);
+\draw [->,color=qqwwff] (0,0) -- (-3.46,-2);
+\draw [->] (0,0) -- (2,2);
+\draw [->,color=ccqqqq] (0,0) -- (3.34,-0.9);
+\draw [->,color=ccqqqq] (0,0) -- (-0.9,3.34);
+\draw [->,color=ccqqqq] (0,0) -- (-2.45,-2.45);
+\draw [shift={(1.02,1.02)}] plot[domain=2.9:5.6,variable=\t]({1*0.52*cos(\t r)+0*0.52*sin(\t r)},{0*0.52*cos(\t r)+1*0.52*sin(\t r)});
+\draw [->] (1.42,0.69) -- (1.47,0.79);
+% \begin{scriptsize}
+\draw[color=qqwwff] (3.19,-1.41) node {$\bm{x}^A$};
+\draw[color=qqwwff] (0.37,3.6) node {$\bm{z}^A$};
+\draw[color=qqwwff] (-2.89,-1.29) node {$\bm{y}^A$};
+\draw[color=black] (1.84,2.29) node {${\bm{u}}^A$};
+\draw[color=ccqqqq] (3.24,-0.48) node {$\bm{x}^B$};
+\draw[color=ccqqqq] (-0.5,3.16) node {$\bm{z}^B$};
+\draw[color=ccqqqq] (-2.22,-1.83) node {$\bm{y}^B$};
+\draw[color=black] (1.63,0.38) node {$\alpha$};
+% \end{scriptsize}
+\end{tikzpicture}

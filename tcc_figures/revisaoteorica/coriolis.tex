@@ -1,0 +1,22 @@
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+
+    \begin{tikzpicture}[scale=0.8,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    % \clip(-5.11,-0.43) rectangle (7.27,7.51);
+    \fill[fill=black,fill opacity=0.1] (-0.1,-0.17) -- (0,0) -- (0,0.2) -- (-0.1,0.03) -- cycle;
+    \fill[fill=black,fill opacity=0.1] (-0.2,0.2) -- (0,0.2) -- (-0.1,0.03) -- (-0.1,0) -- (-0.2,0) -- cycle;
+    \fill[fill=black,fill opacity=0.1] (-0.2,0) -- (-0.1,0) -- (-0.1,-0.17) -- (-0.3,-0.17) -- cycle;
+    \draw [->,color=qqwwff] (0,0) -- (0,4);
+    \draw [->,color=ccqqqq] (0,0) -- (-2,-3.46);
+    \draw (0,0.2)-- (-0.2,0.2);
+    \draw (-0.2,0)-- (-0.2,0.2);
+    \draw (-0.1,-0.17)-- (-0.1,0.03);
+    \draw (-0.1,0.03)-- (0,0.2);
+    \draw (-0.1,-0.17)-- (-0.3,-0.17);
+    \draw (-0.2,0)-- (-0.1,0);
+    \draw (-0.3,-0.17)-- (-0.2,0);
+    \draw [->] (-0.2,0) -- (-4,0);
+    \draw [color=qqwwff](0.22,4.09) node[anchor=north west] {$\bm\omega$};
+    \draw [color=ccqqqq](-1.51,-3.09) node[anchor=north west] {$\bm{a}_c = -2\bm{\omega}\times\bm{v}$};
+    \draw (-4.3,0.6) node[anchor=north west] {$\bm{v}$};
+    \end{tikzpicture}

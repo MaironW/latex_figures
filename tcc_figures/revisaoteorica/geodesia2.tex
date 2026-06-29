@@ -1,0 +1,14 @@
+\newrgbcolor{ccqqqq}{0.8 0 0}
+\newrgbcolor{qqwwff}{0 0.4 1}
+
+    \psset{xunit=0.6cm,yunit=0.6cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+    \begin{pspicture*}(-0.86,-0.3)(12.7,4.86)
+    \parametricplot[linecolor=ccqqqq]{1.3284397885590906}{2.6748346196775605}{1*5.46*cos(t)+0*5.46*sin(t)+4.87|0*5.46*cos(t)+1*5.46*sin(t)+-2.46}
+    \parametricplot[linecolor=ccqqqq]{0.36048187581488805}{1.4737516241549682}{1*2.9*cos(t)+0*2.9*sin(t)+9.46|0*2.9*cos(t)+1*2.9*sin(t)+-1.02}
+    \parametricplot[linecolor=qqwwff]{0.680433627625936}{2.44685437739309}{1*7.95*cos(t)+0*7.95*sin(t)+6|0*7.95*cos(t)+1*7.95*sin(t)+-5}
+    \rput[tl](7.4,1.9){\ccqqqq{geoide}}
+    \rput[tl](8.6,3.1){\qqwwff{esferoide}}
+    \rput[tl](2.1,4.47){altitude}
+    \psline{->}(2.75,2.25)(1.91,4.14)
+    \parametricplot[linecolor=ccqqqq]{4.424832971262385}{4.4643465151286}{1*93.42*cos(t)+0*93.42*sin(t)+32.68|0*93.42*cos(t)+1*93.42*sin(t)+92.42}
+    \end{pspicture*}

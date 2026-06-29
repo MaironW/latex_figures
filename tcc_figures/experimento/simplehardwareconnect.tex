@@ -1,0 +1,35 @@
+{
+\definecolor{qqwwff}{rgb}{0,0.4,1}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+
+\tikzstyle{sensor} = [draw, fill=qqwwff!10, rectangle, 
+    minimum height=3em, minimum width=6em, align=center]
+\tikzstyle{eqs} = [sensor, fill=red!80.0!black!10, rectangle, 
+minimum height=3em, minimum width=6em, align=center]
+% \tikzstyle{sum} = [draw, fill=qqwwff!10, circle, node distance=1cm]
+% \tikzstyle{input} = [coordinate]
+% \tikzstyle{output} = [coordinate]
+% \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\def\blockdist{2.5}
+\def\edgedist{2.5}
+
+% The block diagram code is probably more verbose than necessary
+\begin{tikzpicture}[auto,>=latex']
+    \node [sensor, minimum height=7em] (ESP32) {ESP32};
+    
+    \path (ESP32)+(0,\blockdist) node (drone) [eqs] {Syma X8HG};
+    
+    \path (ESP32.146)+(-\blockdist,0) node (MPU) [sensor] {MPU-9250};
+    \path (ESP32.-146)+(-\blockdist,0) node (GPS) [sensor] {GPS u-blox\\NEO-6M};
+    \path (ESP32.146)+(2*\blockdist,0) node (SDCARD) [sensor] {Cartão SD};
+    \path (ESP32.-146)+(2*\blockdist,0) node (PC) [sensor,fill=black!10] {Computador};
+    
+    \draw [->] (drone) -- (ESP32) ;
+    \path [draw,->] (MPU) -- node [above] {I2C} (ESP32.west |- MPU);
+    \path [draw,->] (GPS) -- node [above] {UART} (ESP32.west |- GPS);
+    \path [draw,<-] (SDCARD) -- node [above] {SPI} (ESP32.east |- SDCARD);
+    \path [draw,<-,dashed] (PC) -- node [above] {Bluetooth} (ESP32.east |- PC);
+    
+\end{tikzpicture}
+}
